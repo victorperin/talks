@@ -5,6 +5,8 @@
 * Exemplos de programação funcional em JavaScript
 * Vantagens e desvantagens
 
+Alguns links em: https://github.com/fmoliveira/talks/issues/3
+
 ## A linguagem mais mal entendida do mundo
 A linguagem JavaScript é uma das mais populares do mundo, e isto se deve ao seu papel de ser a linguagem de script da web.
 
