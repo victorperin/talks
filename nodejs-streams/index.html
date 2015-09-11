@@ -37,20 +37,31 @@
 
 				<section data-markdown>
 					<script type="text/template">
+						## NodeSchool Campinas
 						# Stream Adventure
+						fmoliveira.com.br
 					</script>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
-						## O que são streams?
+						## O que é streaming?
+						*stream*:
+						v. transferir ou transmitir dados de uma forma que ele seja processado em um fluxo estável e contínuo
 					</script>
 				</section>
 				
 				<section>
 					<section data-markdown>
 						<script type="text/template">
-							Basicamente, são como pipes do Unix.
+							## Como funciona?
+							Basicamente, como os pipes do Unix.
+						</script>
+					</section>
+
+					<section data-markdown>
+						<script type="text/template">
+							![](mario-pipes.png)
 						</script>
 					</section>
 					
@@ -60,6 +71,7 @@
 							```
 							$ ls /etc/
 							```
+							Este comando lista mais de 200 arquivos.
 						</script>
 					</section>
 					
@@ -69,6 +81,9 @@
 							```
 							$ ls /etc/ | grep 'release'
 							```
+							Este comando lista apenas 3 arquivos:
+							
+							lsb-release, os-release, upstream-release
 						</script>
 					</section>
 				</section>
@@ -76,18 +91,180 @@
 				<section>
 					<section data-markdown>
 						<script type="text/template">
-							Existem streams de leitura e escrita.
+							## Streams em Node.js
+							Event Emitters com métodos que controlam o fluxo de dados.
+						</script>
+					</section>
+
+					<section data-markdown>
+						<script type="text/template">
+							Tipos de stream:
+							* Leitura
+							* Escrita
+							* Duplex
+							* Transformação
+							* Clássico (legado)
+						</script>
+					</section>
+
+					<section data-markdown>
+						<script type="text/template">
+							Você pode dar pipe de um stream de leitura para um stream de escrita.
+							```
+							streamLeitura.pipe(streamEscrita);
+							```
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							# Na prática
 						</script>
 					</section>
 					
 					<section data-markdown>
 						<script type="text/template">
-							Você pode dar um pipe de um stream de leitura para um stream de gravação.
+							Existem diversas aplicações para o uso de streams.
+						</script>
+					</section>
+					
+					<section data-markdown>
+						<script type="text/template">
+							* Arquivos
+						</script>
+					</section>
+					
+					<section data-markdown>
+						<script type="text/template">
+							* Servidores TCP
+						</script>
+					</section>
+					
+					<section data-markdown>
+						<script type="text/template">
+							* Clientes destes servidores
+						</script>
+					</section>
+					
+					<section data-markdown>
+						<script type="text/template">
+							* WebSockets
+						</script>
+					</section>
+					
+					<section data-markdown>
+						<script type="text/template">
+							* Eventos de mouse, teclado e touch
+						</script>
+					</section>
+					
+					<section data-markdown>
+						<script type="text/template">
+							* Codificação e decodificação de dados
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							# Vantagens
+						</script>
+					</section>
+					
+					<section data-markdown>
+						<script type="text/template">
+							## Sem stream
 							```
-							streamLeitura.pipe(streamGravacao);
+							var server = http.createServer(function (req, res) {
+								fs.readFile(__dirname + '/data.txt', function (err, data) {
+									res.end(data);
+								});
+							});
 							```
 						</script>
 					</section>
+					
+					<section data-markdown>
+						<script type="text/template">
+							### O que acontece:
+							* O arquivo é lido por completo de uma só vez;
+							* Todo o seu conteúdo é armazenado em um buffer na memória;
+							* Somente após o término da leitura ele é escrito para o cliente.
+						</script>
+					</section>
+					
+					<section data-markdown>
+						<script type="text/template">
+							## Com stream
+							```
+							var server = http.createServer(function (req, res) {
+								var stream = fs.createReadStream(__dirname + '/data.txt');
+								stream.pipe(res);
+							});
+							```
+						</script>
+					</section>
+					
+					<section data-markdown>
+						<script type="text/template">
+							### O que acontece:
+							* Os dados são lidos um pedaço por vez;
+							* Os pedaços são enviados imediatamente para o cliente, conforme são lidos;
+							* Economia de tempo e memória na transferência do arquivo.
+						</script>
+					</section>
+					
+					<section data-markdown>
+						<script type="text/template">
+							## Sem stream
+							```
+							var server = http.createServer(function (req, res) {
+								fs.readFile(__dirname + '/data.txt', function (err, data) {
+									res.end(data);
+								});
+							});
+							```
+
+							## Com stream
+							```
+							var server = http.createServer(function (req, res) {
+								var stream = fs.createReadStream(__dirname + '/data.txt');
+								stream.pipe(res);
+							});
+							```
+						</script>
+					</section>
+					
+					<section data-markdown>
+						<script type="text/template">
+							## Compactação de dados?
+						</script>
+					</section>
+					
+					<section data-markdown>
+						<script type="text/template">
+							## Vamos compactar o arquivo antes de enviá-lo
+							Use um módulo de streaming para compactação:
+							```
+							var oppressor = require('oppressor');
+
+							var server = http.createServer(function (req, res) {
+								var stream = fs.createReadStream(__dirname + '/data.txt');
+								stream.pipe(oppressor(req)).pipe(res);
+							});
+							```
+						</script>
+					</section>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						# Referências
+						https://github.com/substack/stream-handbook
+					</script>
 				</section>
 
 			</div>
