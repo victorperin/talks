@@ -10,3 +10,5 @@
 * Aprofundamento em Restify
 * Testes unitários com mocks
 * Testes end to end
+* Geração de documentação
+* 
