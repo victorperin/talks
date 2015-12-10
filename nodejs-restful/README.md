@@ -2,7 +2,7 @@
 
 * [Restify](http://restify.com/)
 * [Hapi.js](http://hapijs.com/)
-* Strongloop
+* [Loopback](http://loopback.io/)
 
 # Tópicos
 
