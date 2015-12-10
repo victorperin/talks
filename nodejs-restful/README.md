@@ -1,7 +1,7 @@
 # APIs RESTful com Node.js
 
 * [Restify](http://restify.com/)
-* HAPI
+* [Hapi.js](http://hapijs.com/)
 * Strongloop
 
 # Tópicos
