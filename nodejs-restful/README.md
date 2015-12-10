@@ -10,4 +10,4 @@
 * Aprofundamento em [Restify](http://restify.com/)
 * Testes unitários com mocks
 * Testes end to end
-* Geração de documentação
+* Geração de documentação com [apiDoc](http://apidocjs.com/)
