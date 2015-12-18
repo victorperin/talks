@@ -3,6 +3,7 @@
 * [Restify](http://restify.com/)
 * [Hapi.js](http://hapijs.com/)
 * [Loopback](http://loopback.io/)
+* [apiDoc](http://apidocjs.com/)
 
 # Tópicos
 
