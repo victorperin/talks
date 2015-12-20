@@ -4,7 +4,7 @@
 * [Hapi.js](http://hapijs.com/)
 * [Loopback](http://loopback.io/)
 * [apiDoc](http://apidocjs.com/)
-* Swagger
+* [Swagger](http://editor.swagger.io/)
 
 # Tópicos
 
