@@ -13,3 +13,4 @@
 * Testes unitários com mocks
 * Testes end to end
 * Geração de documentação com [apiDoc](http://apidocjs.com/)
+* Formulários de teste da API com apiDoc e Swagger
