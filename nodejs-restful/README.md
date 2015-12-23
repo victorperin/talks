@@ -5,6 +5,7 @@
 * [Loopback](http://loopback.io/)
 * [apiDoc](http://apidocjs.com/)
 * [Swagger](http://editor.swagger.io/)
+* [Yeoman](http://yeoman.io/)
 
 # Tópicos
 
