@@ -16,5 +16,3 @@
 * Geração de documentação com [apiDoc](http://apidocjs.com/)
 * Formulários de teste da API com apiDoc e Swagger
 * Yeoman Generators
-
-# Coding Dojo
