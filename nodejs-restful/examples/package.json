@@ -1,0 +1,18 @@
+{
+  "name": "nodejs-restful",
+  "version": "1.0.0",
+  "description": "Exemplos para a talk de APIs RESTful.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rest",
+    "restful",
+    "api",
+    "doc",
+    "documentacao"
+  ],
+  "author": "Filipe Oliveira <contato@fmoliveira.com.br>",
+  "license": "MIT"
+}
