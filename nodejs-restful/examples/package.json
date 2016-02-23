@@ -4,7 +4,8 @@
   "description": "Exemplos para a talk de APIs RESTful.",
   "main": "index.js",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "docs": "node node_modules/apidoc/bin/apidoc -i . -o docs"
   },
   "keywords": [
     "rest",
@@ -18,5 +19,8 @@
   "dependencies": {
     "lodash": "^4.5.1",
     "restify": "^4.0.4"
+  },
+  "devDependencies": {
+    "apidoc": "^0.15.1"
   }
 }
