@@ -4,7 +4,7 @@
   "description": "Exemplos para a talk de APIs RESTful.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ."
   },
   "keywords": [
     "rest",
@@ -14,5 +14,9 @@
     "documentacao"
   ],
   "author": "Filipe Oliveira <contato@fmoliveira.com.br>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.5.1",
+    "restify": "^4.0.4"
+  }
 }
