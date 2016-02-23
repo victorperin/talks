@@ -31,8 +31,8 @@ ctrl.adicionar = function (req, res, next) {
 
   var detalhes = {
     username: req.params.username,
-    full_name: req.body.full_name,
-    twitter: req.body.twitter
+    full_name: req.params.full_name,
+    twitter: req.params.twitter
   }
 
   // Usuário não existe, vamos inserí-lo
