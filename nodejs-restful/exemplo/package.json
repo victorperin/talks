@@ -22,5 +22,9 @@
   },
   "devDependencies": {
     "apidoc": "^0.15.1"
+  },
+  "apidoc": {
+    "title": "Documentação da API de exemplo.",
+    "url": "https://api.nodeschool.io/v1"
   }
 }
