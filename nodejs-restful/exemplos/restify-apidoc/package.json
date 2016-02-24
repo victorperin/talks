@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-restful",
+  "name": "nodejs-restful-restify",
   "version": "1.0.0",
-  "description": "Exemplos para a talk de APIs RESTful.",
+  "description": "Exemplos em Restify + apiDoc para a talk de APIs RESTful.",
   "main": "index.js",
   "scripts": {
     "start": "node .",
@@ -12,7 +12,9 @@
     "restful",
     "api",
     "doc",
-    "documentacao"
+    "documentacao",
+    "restify",
+    "apidoc"
   ],
   "author": "Filipe Oliveira <contato@fmoliveira.com.br>",
   "license": "MIT",
