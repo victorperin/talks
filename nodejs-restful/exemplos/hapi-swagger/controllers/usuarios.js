@@ -12,6 +12,10 @@ module.exports = [
     path: '/usuarios',
     handler: function (req, reply) {
       return reply(dados)
+    },
+    config: {
+      description: 'Listar usuários.',
+      tags: [ 'api' ]
     }
   },
   {
@@ -29,6 +33,10 @@ module.exports = [
         // Usuário não existe, retorna erro 404 não encontrado
         reply(Boom.notFound('Usuário não cadastrado!'))
       }
+    },
+    config:{
+      description: 'Detalhes do usuário.',
+      tags: [ 'api' ]
     }
   },
   {
@@ -55,6 +63,10 @@ module.exports = [
         // Usuário já existe, retorna erro 405 não permitido
         reply(Boom.methodNotAllowed('Nome de usuário já cadastrado!'))
       }
+    },
+    config: {
+      description: 'Cadastrar novo usuário.',
+      tags: [ 'api' ]
     }
   },
   {
@@ -79,6 +91,10 @@ module.exports = [
         dados[idx] = detalhes
         reply(detalhes)
       }
+    },
+    config: {
+      description: 'Alterar usuário.',
+      tags: [ 'api' ]
     }
   },
   {
@@ -96,6 +112,10 @@ module.exports = [
         // Removeu usuário com sucesso
         reply()
       }
+    },
+    config: {
+      description: 'Remover usuário.',
+      tags: [ 'api' ]
     }
   }
 ]

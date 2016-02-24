@@ -7,6 +7,10 @@ module.exports = [
     handler: function (req, reply) {
       let nome = req.params.nome || 'world'
       return reply({ msg: 'Hello, ' + nome + '!' })
+    },
+    config: {
+      description: 'Cumprimentar pessoa.',
+      tags: [ 'api' ]
     }
   }
 ]
