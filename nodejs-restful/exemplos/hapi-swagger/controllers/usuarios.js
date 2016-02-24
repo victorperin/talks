@@ -80,5 +80,22 @@ module.exports = [
         reply(detalhes)
       }
     }
+  },
+  {
+    method: 'DELETE',
+    path: '/usuarios/{username}',
+    handler: function (req, reply) {
+      let removed = _.remove(dados, function (i) {
+        return i.username == req.params.username
+      })
+
+      // Usuário não existe, retorna erro 404 não encontrado
+      if (removed.length === 0) {
+        reply(Boom.notFound('Usuário não cadastrado!'))
+      } else {
+        // Removeu usuário com sucesso
+        reply()
+      }
+    }
   }
 ]
