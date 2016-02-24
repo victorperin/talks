@@ -18,6 +18,7 @@
   "author": "Filipe Oliveira <contato@fmoliveira.com.br>",
   "license": "MIT",
   "dependencies": {
+    "boom": "^3.1.2",
     "hapi": "^13.0.0",
     "lodash": "^4.5.1"
   }
