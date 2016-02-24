@@ -25,6 +25,7 @@
   },
   "apidoc": {
     "title": "Documentação da API de exemplo.",
-    "url": "https://api.nodeschool.io/v1"
+    "url": "https://api.nodeschool.io/v1",
+    "sampleUrl": "http://localhost:3000"
   }
 }

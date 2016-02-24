@@ -4,6 +4,12 @@ var server = restify.createServer()
 // Plugin para tratar dados de POST
 server.use(restify.bodyParser())
 
+// Habilita CORS (Cross Original Resource Sharing)
+// para que sua API possa ser consumida por outros hostnames
+server.use(restify.CORS({
+  origins: [ '*' ]
+}))
+
 // Carrega os controllers de sua API
 var hello = require('./controllers/hello')
 var usuarios = require('./controllers/usuarios')
@@ -21,6 +27,6 @@ server.del('/usuarios/:username', usuarios.remover)
 // Quando usar PUT ou POST: http://restcookbook.com/HTTP%20Methods/put-vs-post/
 
 // Escuta sua API na porta especificada
-server.listen(process.env.port || 8080, function () {
+server.listen(process.env.port || 3000, function () {
   console.log('%s escutando em %s', server.name, server.url)
 })
