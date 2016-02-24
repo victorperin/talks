@@ -1,0 +1,336 @@
+define({ "api": [
+  {
+    "type": "get",
+    "url": "/hello/:nome?",
+    "title": "1. Cumprimentar pessoa.",
+    "name": "CumprimentarPessoa",
+    "group": "Cumprimentos",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "nome",
+            "description": "<p>Nome da pessoa a ser cumprimentada.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": ".",
+            "description": "<p>Mensagem de saudação à pessoa.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Sucesso:",
+          "content": "HTTP/1.1 200 OK\n\"Hello, world!\"",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "controllers/hello.js",
+    "groupTitle": "Cumprimentos",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/hello/:nome?"
+      }
+    ]
+  },
+  {
+    "type": "post",
+    "url": "/usuarios",
+    "title": "3. Adicionar usuário.",
+    "name": "AdicionarUsuario",
+    "group": "Usuarios",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "description": "<p>Nome da conta do usuário.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "full_name",
+            "description": "<p>Nome completo do usuário.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "twitter",
+            "description": "<p>Handle do Twitter do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Sucesso:",
+          "content": "HTTP/1.1 201 Created",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Erro:",
+          "content": "HTTP/1.1 405 Method Not Allowed",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "controllers/usuarios.js",
+    "groupTitle": "Usuarios",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/usuarios"
+      }
+    ]
+  },
+  {
+    "type": "put",
+    "url": "/usuarios/:username",
+    "title": "4. Alterar usuário.",
+    "name": "AlterarUsuario",
+    "group": "Usuarios",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "description": "<p>Nome da conta do usuário.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "full_name",
+            "description": "<p>Nome completo do usuário.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "twitter",
+            "description": "<p>Handle do Twitter do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Sucesso:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Erro:",
+          "content": "HTTP/1.1 404 Not Found",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "controllers/usuarios.js",
+    "groupTitle": "Usuarios",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/usuarios/:username"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "/usuarios/:username",
+    "title": "2. Detalhes do usuário.",
+    "name": "DetalhesUsuario",
+    "group": "Usuarios",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "description": "<p>Nome da conta do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "description": "<p>Nome da conta do usuário.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "full_name",
+            "description": "<p>Nome completo do usuário.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "twitter",
+            "description": "<p>Handle do Twitter do usuário.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Sucesso:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"username\": \"wwallace\",\n  \"full_name\": \"William Wallace\",\n  \"twitter\": \"wallace\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Erro:",
+          "content": "HTTP/1.1 404 Not Found",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "controllers/usuarios.js",
+    "groupTitle": "Usuarios",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/usuarios/:username"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "/usuarios",
+    "title": "1. Listar usuários.",
+    "name": "ListarUsuarios",
+    "group": "Usuarios",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "description": "<p>Nome da conta do usuário.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "full_name",
+            "description": "<p>Nome completo do usuário.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "twitter",
+            "description": "<p>Handle do Twitter do usuário.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Sucesso:",
+          "content": "HTTP/1.1 200 OK\n[\n  {\n    \"username\": \"johndoe\",\n    \"full_name\": \"John Doe\",\n    \"twitter\": \"jdoe\"\n  },\n  {\n    \"username\": \"wwallace\",\n    \"full_name\": \"William Wallace\",\n    \"twitter\": \"wallace\"\n  }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "controllers/usuarios.js",
+    "groupTitle": "Usuarios",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/usuarios"
+      }
+    ]
+  },
+  {
+    "type": "delete",
+    "url": "/usuarios/:username",
+    "title": "5. Remover usuário.",
+    "name": "RemoverUsuario",
+    "group": "Usuarios",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "description": "<p>Nome da conta do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Sucesso:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Erro:",
+          "content": "HTTP/1.1 404 Not Found",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "controllers/usuarios.js",
+    "groupTitle": "Usuarios",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/usuarios/:username"
+      }
+    ]
+  }
+] });
