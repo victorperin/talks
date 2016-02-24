@@ -36,7 +36,7 @@ ctrl.listar = function (req, res, next) {
 
 /**
  * @api {get} /usuarios/:username 2. Detalhes do usuário.
- * @apiName Detalhes do usuário.
+ * @apiName DetalhesUsuario
  * @apiGroup Usuarios
  *
  * @apiParam {String} username Nome da conta do usuário.
@@ -71,8 +71,8 @@ ctrl.perfil = function (req, res, next) {
 }
 
 /**
- * @api {put} /usuarios/:username 3. Alterar usuário.
- * @apiName Alterar usuário.
+ * @api {post} /usuarios 3. Adicionar usuário.
+ * @apiName AdicionarUsuario
  * @apiGroup Usuarios
  *
  * @apiParam {String} username Nome da conta do usuário.
@@ -80,10 +80,10 @@ ctrl.perfil = function (req, res, next) {
  * @apiParam {String} twitter Handle do Twitter do usuário.
  *
  * @apiSuccessExample {json} Sucesso:
- *   HTTP/1.1 200 OK
+ *   HTTP/1.1 201 Created
  *
  * @apiErrorExample {json} Erro:
- *   HTTP/1.1 404 Not Found
+ *   HTTP/1.1 405 Method Not Allowed
  */
 ctrl.adicionar = function (req, res, next) {
   var idx = _.findIndex(dados, function (i) {
@@ -101,15 +101,50 @@ ctrl.adicionar = function (req, res, next) {
     dados.push(detalhes)
     res.send(201, detalhes)
   } else {
-    // Usuário já existe, vamos atualizar seus dados
+    // Usuário já existe, não pode criar um novo com o mesmo nome
+    res.send(405)
+  }
+}
+
+/**
+ * @api {put} /usuarios/:username 4. Alterar usuário.
+ * @apiName AlterarUsuario
+ * @apiGroup Usuarios
+ *
+ * @apiParam {String} username Nome da conta do usuário.
+ * @apiParam {String} full_name Nome completo do usuário.
+ * @apiParam {String} twitter Handle do Twitter do usuário.
+ *
+ * @apiSuccessExample {json} Sucesso:
+ *   HTTP/1.1 200 OK
+ *
+ * @apiErrorExample {json} Erro:
+ *   HTTP/1.1 404 Not Found
+ */
+ctrl.alterar = function (req, res, next) {
+  var idx = _.findIndex(dados, function (i) {
+    return i.username === req.params.username
+  })
+
+  var detalhes = {
+    username: req.params.username,
+    full_name: req.params.full_name,
+    twitter: req.params.twitter
+  }
+
+  // Usuário não existe
+  if (idx === -1) {
+    res.send(404)
+  } else {
+    // Usuário existe, vamos atualizar seus dados
     dados[idx] = detalhes
     res.send(detalhes)
   }
 }
 
 /**
- * @api {delete} /usuarios/:username 4. Remover usuário.
- * @apiName Remover usuário.
+ * @api {delete} /usuarios/:username 5. Remover usuário.
+ * @apiName RemoverUsuario
  * @apiGroup Usuarios
  *
  * @apiParam {String} username Nome da conta do usuário.
