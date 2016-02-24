@@ -6,10 +6,56 @@ var dados = require('../dados/usuarios')
 
 var ctrl = {}
 
+/**
+ * @api {get} /usuarios 1. Listar usuários.
+ * @apiName ListarUsuarios
+ * @apiGroup Usuarios
+ *
+ * @apiSuccess {String} username Nome da conta do usuário.
+ * @apiSuccess {String} full_name Nome completo do usuário.
+ * @apiSuccess {String} twitter Handle do Twitter do usuário.
+ *
+ * @apiSuccessExample {json} Sucesso:
+ *   HTTP/1.1 200 OK
+ *   [
+ *     {
+ *       "username": "johndoe",
+ *       "full_name": "John Doe",
+ *       "twitter": "jdoe"
+ *     },
+ *     {
+ *       "username": "wwallace",
+ *       "full_name": "William Wallace",
+ *       "twitter": "wallace"
+ *     }
+ *   ]
+ */
 ctrl.listar = function (req, res, next) {
   res.send(dados)
 }
 
+/**
+ * @api {get} /usuarios/:username 2. Detalhes do usuário.
+ * @apiName Detalhes do usuário.
+ * @apiGroup Usuarios
+ *
+ * @apiParam {String} username Nome da conta do usuário.
+ *
+ * @apiSuccess {String} username Nome da conta do usuário.
+ * @apiSuccess {String} full_name Nome completo do usuário.
+ * @apiSuccess {String} twitter Handle do Twitter do usuário.
+ *
+ * @apiSuccessExample {json} Sucesso:
+ *   HTTP/1.1 200 OK
+ *   {
+ *     "username": "wwallace",
+ *     "full_name": "William Wallace",
+ *     "twitter": "wallace"
+ *   }
+ *
+ * @apiErrorExample {json} Erro:
+ *   HTTP/1.1 404 Not Found
+ */
 ctrl.perfil = function (req, res, next) {
   var u = _.find(dados, function (i) {
     return i.username === req.params.username
@@ -24,6 +70,21 @@ ctrl.perfil = function (req, res, next) {
   }
 }
 
+/**
+ * @api {put} /usuarios/:username 3. Alterar usuário.
+ * @apiName Alterar usuário.
+ * @apiGroup Usuarios
+ *
+ * @apiParam {String} username Nome da conta do usuário.
+ * @apiParam {String} full_name Nome completo do usuário.
+ * @apiParam {String} twitter Handle do Twitter do usuário.
+ *
+ * @apiSuccessExample {json} Sucesso:
+ *   HTTP/1.1 200 OK
+ *
+ * @apiErrorExample {json} Erro:
+ *   HTTP/1.1 404 Not Found
+ */
 ctrl.adicionar = function (req, res, next) {
   var idx = _.findIndex(dados, function (i) {
     return i.username === req.params.username
@@ -46,6 +107,19 @@ ctrl.adicionar = function (req, res, next) {
   }
 }
 
+/**
+ * @api {delete} /usuarios/:username 4. Remover usuário.
+ * @apiName Remover usuário.
+ * @apiGroup Usuarios
+ *
+ * @apiParam {String} username Nome da conta do usuário.
+ *
+ * @apiSuccessExample {json} Sucesso:
+ *   HTTP/1.1 200 OK
+ *
+ * @apiErrorExample {json} Erro:
+ *   HTTP/1.1 404 Not Found
+ */
 ctrl.remover = function (req, res, next) {
   _.remove(dados, function (i) {
     return i.username === req.params.username

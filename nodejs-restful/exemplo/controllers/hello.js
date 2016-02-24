@@ -1,9 +1,9 @@
 var ctrl = {}
 
 /**
- * @api {get} /hello/:nome? Cumprimentar o usuário.
+ * @api {get} /hello/:nome? 1. Cumprimentar usuário.
  * @apiName Cumprimentar usuário.
- * @apiGroup Cumprimentos.
+ * @apiGroup Cumprimentos
  *
  * @apiParam {String} [nome] Nome do usuário a ser cumprimentado.
  *

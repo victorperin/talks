@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node .",
-    "docs": "node node_modules/apidoc/bin/apidoc -i . -o docs"
+    "docs": "node node_modules/apidoc/bin/apidoc -i controllers -o docs"
   },
   "keywords": [
     "rest",
