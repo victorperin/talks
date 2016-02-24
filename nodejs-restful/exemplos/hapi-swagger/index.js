@@ -11,11 +11,11 @@ server.connection({
 
 // Adiciona as rotas
 const hello = require('./controllers/hello')
-//const usuarios = require('./controllers/usuarios')
+const usuarios = require('./controllers/usuarios')
 
 const routes = [].concat(
-  hello
-  //usuarios
+  hello,
+  usuarios
 )
 
 server.route(routes)
