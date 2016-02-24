@@ -16,5 +16,8 @@
     "swagger"
   ],
   "author": "Filipe Oliveira <contato@fmoliveira.com.br>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "hapi": "^13.0.0"
+  }
 }
