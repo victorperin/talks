@@ -56,5 +56,29 @@ module.exports = [
         reply(Boom.methodNotAllowed('Nome de usuário já cadastrado!'))
       }
     }
+  },
+  {
+    method: 'PUT',
+    path: '/usuarios/{username}',
+    handler: function (req, reply) {
+      let idx = _.findIndex(dados, function (i) {
+        return i.username == req.params.username
+      })
+
+      let detalhes = {
+        username: req.params.username,
+        full_name: req.payload.full_name,
+        twitter: req.payload.twitter
+      }
+
+      // Usuário não existe, retorna erro 404 não encontrado
+      if (idx === -1) {
+        reply(Boom.notFound('Usuário não cadastrado!'))
+      } else {
+        // Usuário existe, vamos atualizar seus dados
+        dados[idx] = detalhes
+        reply(detalhes)
+      }
+    }
   }
 ]
