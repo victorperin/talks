@@ -1,5 +1,7 @@
 'use strict'
 
+const Joi = require('joi') // Validação do schema
+
 module.exports = [
   {
     method: 'GET',
@@ -10,7 +12,14 @@ module.exports = [
     },
     config: {
       description: 'Cumprimentar pessoa.',
-      tags: [ 'api' ]
+      notes: 'Cumprimenta uma pessoa pelo nome, caso seja informado.',
+      tags: [ 'api' ],
+      validate: {
+        params: {
+          nome:Joi.string()
+            .description('Nome da pessoa a ser cumprimentada.')
+        }
+      }
     }
   }
 ]

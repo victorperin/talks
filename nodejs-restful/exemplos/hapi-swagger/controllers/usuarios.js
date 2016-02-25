@@ -1,6 +1,7 @@
 'use strict'
 
 const _ = require('lodash') // Documentação do lodash: https://lodash.com/docs
+const Joi = require('joi') // Validação do schema
 const Boom = require('boom') // Erros HTTP amigáveis
 
 // Dados fictícios para estes exemplos
@@ -15,6 +16,7 @@ module.exports = [
     },
     config: {
       description: 'Listar usuários.',
+      notes: 'Retorna lista de usuários cadastrados.',
       tags: [ 'api' ]
     }
   },
@@ -36,7 +38,15 @@ module.exports = [
     },
     config:{
       description: 'Detalhes do usuário.',
-      tags: [ 'api' ]
+      notes: 'Retorna o perfil do usuário solicitado.',
+      tags: [ 'api' ],
+      validate: {
+        params: {
+          username: Joi.string()
+            .required()
+            .description('Nome de usuário.')
+        }
+      }
     }
   },
   {
@@ -66,7 +76,21 @@ module.exports = [
     },
     config: {
       description: 'Cadastrar novo usuário.',
-      tags: [ 'api' ]
+      notes: 'Cadastra um novo usuário.',
+      tags: [ 'api' ],
+      validate: {
+        payload: {
+          username: Joi.string()
+            .required()
+            .description('Nome de usuário.'),
+          full_name: Joi.string()
+            .required()
+            .description('Nome completo.'),
+          twitter: Joi.string()
+            .required()
+            .description('Handle do Twitter.')
+        }
+      }
     }
   },
   {
@@ -94,7 +118,21 @@ module.exports = [
     },
     config: {
       description: 'Alterar usuário.',
-      tags: [ 'api' ]
+      notes: 'Altera os dados de um usuário cadastrado.',
+      tags: [ 'api' ],
+      validate: {
+        params: {
+          username: Joi.string()
+            .required()
+            .description('Nome de usuário.'),
+          full_name: Joi.string()
+            .required()
+            .description('Nome completo.'),
+          twitter: Joi.string()
+            .required()
+            .description('Handle do Twitter.')
+        }
+      }
     }
   },
   {
@@ -115,7 +153,15 @@ module.exports = [
     },
     config: {
       description: 'Remover usuário.',
-      tags: [ 'api' ]
+      notes: 'Remove um usuário cadastrado.',
+      tags: [ 'api' ],
+      validate: {
+        params: {
+          username: Joi.string()
+            .required()
+            .description('Nome de usuário.')
+        }
+      }
     }
   }
 ]
