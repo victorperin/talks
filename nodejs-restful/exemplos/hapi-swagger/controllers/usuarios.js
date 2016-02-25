@@ -8,6 +8,7 @@ const Boom = require('boom') // Erros HTTP amigáveis
 var dados = require('../dados/usuarios')
 
 module.exports = [
+  // Lista todos os usuários cadastrados
   {
     method: 'GET',
     path: '/usuarios',
@@ -20,6 +21,7 @@ module.exports = [
       tags: [ 'api' ]
     }
   },
+  // Exibe o perfil do usuário solicitado
   {
     method: 'GET',
     path: '/usuarios/{username}',
@@ -49,6 +51,7 @@ module.exports = [
       }
     }
   },
+  // Cadastra um novo usuário
   {
     method: 'POST',
     path: '/usuarios',
@@ -93,6 +96,7 @@ module.exports = [
       }
     }
   },
+  // Altera os dados de um usuário
   {
     method: 'PUT',
     path: '/usuarios/{username}',
@@ -135,6 +139,7 @@ module.exports = [
       }
     }
   },
+  // Remove um usuário cadastrado
   {
     method: 'DELETE',
     path: '/usuarios/{username}',
