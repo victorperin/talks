@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="lib/css/zenburn.css">
 
   <style type="text/css">
+    .verb {
+      color: #39cccc;
+      font-weight: bold;
+    }
     strong {
       color: #ffdc00;
       font-weight: bold;
@@ -74,18 +78,18 @@
           <script type="text/template">
             ## Protocolo HTTP
             * REST utiliza o protocolo HTTP de forma explícita para se comunicar
-            * URI são usados para expor a estrutura do serviço
-               * <strong>/usuarios</strong> - Lista de usuários
-               * <strong>/usuarios/123</strong> - Detalhes do usuário 123
-               * <strong>/usuarios/123/amigos</strong> - Lista os amigos do usuário 123
+            * URI são usadas para expor a estrutura do serviço
+               * <span class="verb">GET</span> <strong>/usuarios</strong> - Lista de usuários
+               * <span class="verb">GET</span> <strong>/usuarios/123</strong> - Detalhes do usuário 123
+               * <span class="verb">GET</span> <strong>/usuarios/123/amigos</strong> - Lista os amigos do usuário 123
           </script>
         </section>
         <!-- Transferência de Dados -->
         <section data-markdown>
           <script type="text/template">
             ## Transferência de dados
-            * A notação preferida pela comunidade é <strong>JSON</strong>, mas muitas APIs também suportam <strong>XML</strong>.
-            * Você pode optar por suportar apenas um dos formatos em sua API, ou suportar ambos.
+            * A notação preferida pela comunidade é <strong>JSON</strong>, mas muitas APIs também suportam <strong>XML</strong>
+            * Você pode optar por suportar apenas um dos formatos em sua API, ou suportar ambos
           </script>
         </section>
       </section>
