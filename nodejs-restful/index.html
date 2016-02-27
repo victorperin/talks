@@ -247,6 +247,43 @@
 
       </section>
 
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Implementando Lado-a-Lado (Express)
+            <pre><code>
+              npm install --save swagger-express
+            </code></pre>
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            <pre><code>
+              var swagger = require('swagger-express');
+
+              app.configure(function(){
+                app.use(swagger.init(app, {
+                  apiVersion: '1.0',
+                  swaggerVersion: '1.0',
+                  swaggerURL: '/swagger',
+                  swaggerJSON: '/api-docs.json',
+                  swaggerUI: './public/swagger/',
+                  basePath: 'http://localhost:3000',
+                  info: {
+                    title: 'swagger-express sample app',
+                    description: 'Swagger + Express = {swagger-express}'
+                  },
+                  apis: ['./api.js', './api.yml'],
+                  middleware: function(req, res){}
+                }));
+                app.use(app.router);
+              });
+            </code></pre>
+          </script>
+        </section>
+      </section>
+
       <!-- Boas Práticas -->
       <section data-markdown>
         <script type="text/template">
